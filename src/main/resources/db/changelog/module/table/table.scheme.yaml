@@ -1,0 +1,13 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 1
+      author: danangt49@gmail.com
+
+  - include:
+      file: ddl/23032024_init_table.sql
+      relativeToChangelogFile: true
+
+  - include:
+      file: dml/23032024_insert_table.sql
+      relativeToChangelogFile: true

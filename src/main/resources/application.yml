@@ -1,0 +1,24 @@
+spring:
+  port: 8080
+
+  application:
+    name: information-member
+
+  profiles:
+    active: dev
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5431/info_member
+    username: admin
+    password: password
+
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+    driver-class-name: ${spring.datasource.driver-class-name}
+    enabled: true
+    url: ${spring.datasource.url}
+    password: ${spring.datasource.password}
+    user: ${spring.datasource.username}
+    contexts: dev,TEST
+

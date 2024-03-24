@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - include:
+      file: module/table/table.scheme.yaml
+      relativeToChangelogFile: true
