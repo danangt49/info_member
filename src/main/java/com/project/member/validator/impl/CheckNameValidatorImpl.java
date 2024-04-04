@@ -18,6 +18,6 @@ public class CheckNameValidatorImpl implements ConstraintValidator<CheckNameCons
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
         var user = usersRepository.findByName(s);
-        return user.isPresent();
+        return user.isEmpty();
     }
 }

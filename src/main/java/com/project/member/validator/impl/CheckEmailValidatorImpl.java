@@ -18,6 +18,6 @@ public class CheckEmailValidatorImpl implements ConstraintValidator<CheckEmailCo
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
         var member = membersRepository.findByName(s);
-        return member.isPresent();
+        return member.isEmpty();
     }
 }

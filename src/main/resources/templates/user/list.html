@@ -30,6 +30,7 @@
                                             <tr>
                                                 <th class="text-dark fw-bolder text-hover-primary mb-1 fs-6">NO</th>
                                                 <th class="text-dark fw-bolder text-hover-primary mb-1 fs-6">Name</th>
+                                                <th class="text-dark fw-bolder text-hover-primary mb-1 fs-6">Email</th>
                                                 <th class="text-dark fw-bolder text-hover-primary mb-1 fs-6">Registered At</th>
                                                 <th class="text-dark fw-bolder text-hover-primary mb-1 fs-6 text-center" style="width: 50px">Action</th>
                                             </tr>
@@ -38,6 +39,7 @@
                                             <tr th:each="user, i : ${users.getContents()}">
                                                 <td th:text="${(users.paging.getPageNumber() - 1) * users.paging.getPageSize()  +(i.index +1)}"></td>
                                                 <td th:text="${user.name}"></td>
+                                                <td th:text="${user.email}"></td>
                                                 <td th:text="${#temporals.format(user.createdAt, 'dd/MM/yyyy HH:mm')}"></td>
                                                 <td style="display: flex; justify-content: space-around;">
                                                     <a class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"

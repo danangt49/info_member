@@ -12,6 +12,9 @@ spring:
     url: jdbc:postgresql://localhost:5431/info_member
     username: admin
     password: password
+    show-sql: true
+    hibernate:
+      ddl-auto: update
 
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-master.yaml

@@ -57,8 +57,8 @@ public class MembersAddVo implements Serializable {
     @NotEmpty
     private String identityNumber;
 
-    @NotNull
-    private MultipartFile photoUrl;
+//    @NotNull
+//    private MultipartFile photoUrl;
 
     private String address;
 }

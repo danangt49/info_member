@@ -11,3 +11,11 @@ databaseChangeLog:
   - include:
       file: dml/23032024_insert_table.sql
       relativeToChangelogFile: true
+
+  - changeSet:
+      id: 2
+      author: danangt49@gmail.com
+
+  - include:
+      file: ddl/04042024_add_coloum_email_in_users.sql
+      relativeToChangelogFile: true

@@ -1,6 +1,8 @@
 package com.project.member.vo;
 
+import com.project.member.validator.CheckEmailUserConstrains;
 import com.project.member.validator.CheckNameConstrains;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -23,6 +25,12 @@ public class UsersAddVo implements Serializable {
     @NotEmpty
     @CheckNameConstrains
     private String name;
+
+    @Email(message = "Invalid email")
+    @NotNull
+    @NotEmpty
+    @CheckEmailUserConstrains
+    private String email;
 
     @NotNull
     @NotEmpty

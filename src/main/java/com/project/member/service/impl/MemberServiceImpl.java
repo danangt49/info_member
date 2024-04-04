@@ -58,9 +58,9 @@ public class MemberServiceImpl implements MembersService {
                     throw new CustomException(NAME_ALREADY, HttpStatus.BAD_REQUEST);
                 }
             }
-            log.info("file {}", vo.getPhotoUrl());
-            log.info("file {}", vo.getPhotoUrl());
-            var photo = uploadFile(vo.getPhotoUrl());
+//            log.info("file {}", vo.getPhotoUrl());
+//            log.info("file {}", vo.getPhotoUrl());
+//            var photo = uploadFile(vo.getPhotoUrl());
             Members member = existingMember.orElse(new Members());
             member.setName(vo.getName());
             member.setEmail(email);
@@ -74,7 +74,7 @@ public class MemberServiceImpl implements MembersService {
             member.setDateOfBirth(vo.getDateOfBirth());
             member.setGender(vo.getGender());
             member.setIdentityNumber(vo.getIdentityNumber());
-            member.setPhotoUrl(photo);
+//            member.setPhotoUrl(photo);
             member.setAddress(vo.getAddress());
             member.setUpdatedAt(LocalDateTime.now());
 

@@ -18,6 +18,7 @@ import java.util.List;
 public class UsersDto implements Serializable {
     private String id;
     private String name;
+    private String email;
     private List<Roles> roles;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

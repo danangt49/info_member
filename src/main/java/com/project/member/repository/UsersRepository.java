@@ -12,7 +12,11 @@ public interface UsersRepository extends JpaRepository<Users, String> {
     @Query("SELECT u FROM Users AS u")
     Page<Users> getAll(Pageable pageable);
 
+    @Query("SELECT u FROM Users AS u where u.name = ?1")
     Optional<Users> findByName(String name);
     @Query("SELECT u FROM Users AS u")
     Page<Users> getListByName(String role, String name, Pageable pageable);
+
+    @Query("SELECT u FROM Users AS u where u.email = ?1")
+    Optional<Users> findByEmail(String s);
 }

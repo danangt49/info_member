@@ -39,6 +39,15 @@
                                                   th:errors="*{name}"
                                                   th:if="${#fields.hasErrors('name')}"></span>
                                         </div>
+                                        <div class="d-flex flex-column mb-8 fv-row">
+                                            <label class="d-flex align-items-center fs-6 fw-bold mb-2 required-field">Email</label>
+                                            <input class="form-control form-control-solid" name="email"
+                                                   placeholder="Input Email" th:field="*{email}"
+                                                   type="text"/>
+                                            <span class="form-text text-danger"
+                                                  th:errors="*{email}"
+                                                  th:if="${#fields.hasErrors('email')}"></span>
+                                        </div>
 
                                         <div class="d-flex flex-column mb-8 fv-row"
                                              th:if="${vo.getId()}==null or ${vo.getId()==''}">

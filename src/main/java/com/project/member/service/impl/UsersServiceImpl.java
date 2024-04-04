@@ -39,6 +39,8 @@ public class UsersServiceImpl implements UsersService {
             log.info("checking data user add or update");
             Optional<Users> existingUser = vo.getId() != null ? usersRepository.findById(vo.getId()) : Optional.empty();
             String name = vo.getName();
+            String email = vo.getEmail();
+            log.info("email {} :", email);
 
             log.info("checking data user by name");
             if (existingUser.isPresent() && !existingUser.get().getName().equals(name)) {
@@ -47,7 +49,14 @@ public class UsersServiceImpl implements UsersService {
                     log.error("name already used");
                     throw new CustomException(NAME_ALREADY, HttpStatus.BAD_REQUEST);
                 }
+
+                Optional<Users> checkEmail = usersRepository.findByEmail(email);
+                if (checkEmail.isPresent()) {
+                    log.error("email already used");
+                    throw new CustomException(EMAIL_ALREADY, HttpStatus.BAD_REQUEST);
+                }
             }
+
 
             Users user = existingUser.orElse(new Users());
             user.setName(name);
@@ -57,6 +66,7 @@ public class UsersServiceImpl implements UsersService {
                 user.setRoles(rolesRepository.findByName("USER"));
                 user.setCreatedAt(LocalDateTime.now());
             }
+            user.setEmail(vo.getEmail());
             user.setUpdatedAt(LocalDateTime.now());
 
             usersRepository.save(user);
@@ -114,6 +124,7 @@ public class UsersServiceImpl implements UsersService {
         bean.setId(original.getId());
         bean.setName(original.getName());
         bean.setRoles(original.getRoles());
+        bean.setEmail(original.getEmail());
         bean.setCreatedAt(original.getCreatedAt());
         bean.setUpdatedAt(original.getUpdatedAt());
 
